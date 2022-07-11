@@ -1,10 +1,10 @@
 const db = require('../db');
 
 async function login(username, password ) {
+    console.log(username,password)
     const client = await db.connect();
     const res = await client.query("select nome_usuario from usuario where upper(nome_usuario) = upper($1) and senha = crypt($2, senha)",[username,password]);
     console.log("Resultado");
-    console.log(res);
     if(res.rowCount > 0){
         return true;
     }
