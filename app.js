@@ -26,7 +26,6 @@ function verifyJWT(req, res, next){
 }
 
 
-
 app.get("/products",verifyJWT,async function(req, res, next) {
     console.log(req.query)
     if(req.query.id ==null && req.query.nome == null){
